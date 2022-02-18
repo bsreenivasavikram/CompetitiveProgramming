@@ -34,9 +34,11 @@ public final class IOUtils {
         try {
             output = new FileOutputStream(destination);
             copy(source, output);
+	    closeQuietly(output);
         } finally {
             closeQuietly(output);
         }
+	 
     }
 
     /**

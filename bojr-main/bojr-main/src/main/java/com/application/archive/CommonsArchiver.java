@@ -40,6 +40,10 @@ class CommonsArchiver implements Archiver {
 
     @Override
     public File create(String archive, File destination, File... sources) throws IOException {
+	    
+	if(destination.canWrite() == false) {
+		return null;
+	}
 
         IOUtils.requireDirectory(destination);
 
